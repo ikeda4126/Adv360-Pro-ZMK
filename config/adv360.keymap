@@ -273,132 +273,13 @@
   // ======== 日本語入力コンボ (ベースレイヤーのみ) ========
   // 子音を普通に打ち、直後に「母音 + 親指キー」を同時押しする。
   // timeout-ms を全コンボで調整してください。
+  // 並び順: Del系(ー) → 3キー → 2キー。通常 2キー/3キー=60ms、Del系=80ms。
   combos {
     compatible = "zmk,combos";
 
-    // A+Space -> ann
-    combo_a_nn {
-      timeout-ms = <40>;
-      key-positions = <29 70>;
-      layers = <0>;
-      bindings = <&ja_ann>;
-    };
-
-    // I+Space -> inn
-    combo_i_nn {
-      timeout-ms = <40>;
-      key-positions = <24 70>;
-      layers = <0>;
-      bindings = <&ja_inn>;
-    };
-
-    // U+Space -> unn
-    combo_u_nn {
-      timeout-ms = <40>;
-      key-positions = <23 70>;
-      layers = <0>;
-      bindings = <&ja_unn>;
-    };
-
-    // E+Space -> enn
-    combo_e_nn {
-      timeout-ms = <40>;
-      key-positions = <17 70>;
-      layers = <0>;
-      bindings = <&ja_enn>;
-    };
-
-    // O+Space -> onn
-    combo_o_nn {
-      timeout-ms = <40>;
-      key-positions = <25 70>;
-      layers = <0>;
-      bindings = <&ja_onn>;
-    };
-
-    // A+Enter -> ja_ya
-    combo_a_enter {
-      timeout-ms = <40>;
-      key-positions = <29 69>;
-      layers = <0>;
-      bindings = <&ja_ya>;
-    };
-
-    // U+Enter -> ja_yu
-    combo_u_enter {
-      timeout-ms = <40>;
-      key-positions = <23 69>;
-      layers = <0>;
-      bindings = <&ja_yu>;
-    };
-
-    // O+Enter -> ja_yo
-    combo_o_enter {
-      timeout-ms = <40>;
-      key-positions = <25 69>;
-      layers = <0>;
-      bindings = <&ja_yo>;
-    };
-
-    // I+Enter -> ja_hi
-    combo_i_enter {
-      timeout-ms = <40>;
-      key-positions = <24 69>;
-      layers = <0>;
-      bindings = <&ja_hi>;
-    };
-
-    // E+Enter -> ja_he
-    combo_e_enter {
-      timeout-ms = <40>;
-      key-positions = <17 69>;
-      layers = <0>;
-      bindings = <&ja_he>;
-    };
-
-    // A+BS -> ja_ai
-    combo_a_bs {
-      timeout-ms = <40>;
-      key-positions = <29 65>;
-      layers = <0>;
-      bindings = <&ja_ai>;
-    };
-
-    // I+BS -> ja_ii
-    combo_i_bs {
-      timeout-ms = <40>;
-      key-positions = <24 65>;
-      layers = <0>;
-      bindings = <&ja_ii>;
-    };
-
-    // U+BS -> ja_ui
-    combo_u_bs {
-      timeout-ms = <40>;
-      key-positions = <23 65>;
-      layers = <0>;
-      bindings = <&ja_ui>;
-    };
-
-    // E+BS -> ja_ei
-    combo_e_bs {
-      timeout-ms = <40>;
-      key-positions = <17 65>;
-      layers = <0>;
-      bindings = <&ja_ei>;
-    };
-
-    // O+BS -> ja_ou
-    combo_o_bs {
-      timeout-ms = <40>;
-      key-positions = <25 65>;
-      layers = <0>;
-      bindings = <&ja_ou>;
-    };
-
     // Del+Enter -> ー
     combo_choon_enter {
-      timeout-ms = <40>;
+      timeout-ms = <80>;
       key-positions = <66 69>;
       layers = <0>;
       bindings = <&kp MINUS>;
@@ -406,7 +287,7 @@
 
     // Del+Space -> ー
     combo_choon_space {
-      timeout-ms = <40>;
+      timeout-ms = <80>;
       key-positions = <66 70>;
       layers = <0>;
       bindings = <&kp MINUS>;
@@ -414,7 +295,7 @@
 
     // O+Enter+BS -> ょう (3キー。不要なら削除/コメントアウト)
     combo_you {
-      timeout-ms = <40>;
+      timeout-ms = <60>;
       key-positions = <25 69 65>;
       layers = <0>;
       bindings = <&ja_you>;
@@ -422,10 +303,130 @@
 
     // U+Enter+BS -> ゅう (3キー。不要なら削除/コメントアウト)
     combo_yuu {
-      timeout-ms = <40>;
+      timeout-ms = <60>;
       key-positions = <23 69 65>;
       layers = <0>;
       bindings = <&ja_yuu>;
+    };
+
+    // A+Space -> ann
+    combo_a_nn {
+      timeout-ms = <60>;
+      key-positions = <29 70>;
+      layers = <0>;
+      bindings = <&ja_ann>;
+    };
+
+    // I+Space -> inn
+    combo_i_nn {
+      timeout-ms = <60>;
+      key-positions = <24 70>;
+      layers = <0>;
+      bindings = <&ja_inn>;
+    };
+
+    // U+Space -> unn
+    combo_u_nn {
+      timeout-ms = <60>;
+      key-positions = <23 70>;
+      layers = <0>;
+      bindings = <&ja_unn>;
+    };
+
+    // E+Space -> enn
+    combo_e_nn {
+      timeout-ms = <60>;
+      key-positions = <17 70>;
+      layers = <0>;
+      bindings = <&ja_enn>;
+    };
+
+    // O+Space -> onn
+    combo_o_nn {
+      timeout-ms = <60>;
+      key-positions = <25 70>;
+      layers = <0>;
+      bindings = <&ja_onn>;
+    };
+
+    // A+Enter -> ja_ya
+    combo_a_enter {
+      timeout-ms = <60>;
+      key-positions = <29 69>;
+      layers = <0>;
+      bindings = <&ja_ya>;
+    };
+
+    // U+Enter -> ja_yu
+    combo_u_enter {
+      timeout-ms = <60>;
+      key-positions = <23 69>;
+      layers = <0>;
+      bindings = <&ja_yu>;
+    };
+
+    // O+Enter -> ja_yo
+    combo_o_enter {
+      timeout-ms = <60>;
+      key-positions = <25 69>;
+      layers = <0>;
+      bindings = <&ja_yo>;
+    };
+
+    // I+Enter -> ja_hi
+    combo_i_enter {
+      timeout-ms = <60>;
+      key-positions = <24 69>;
+      layers = <0>;
+      bindings = <&ja_hi>;
+    };
+
+    // E+Enter -> ja_he
+    combo_e_enter {
+      timeout-ms = <60>;
+      key-positions = <17 69>;
+      layers = <0>;
+      bindings = <&ja_he>;
+    };
+
+    // A+BS -> ja_ai
+    combo_a_bs {
+      timeout-ms = <60>;
+      key-positions = <29 65>;
+      layers = <0>;
+      bindings = <&ja_ai>;
+    };
+
+    // I+BS -> ja_ii
+    combo_i_bs {
+      timeout-ms = <60>;
+      key-positions = <24 65>;
+      layers = <0>;
+      bindings = <&ja_ii>;
+    };
+
+    // U+BS -> ja_ui
+    combo_u_bs {
+      timeout-ms = <60>;
+      key-positions = <23 65>;
+      layers = <0>;
+      bindings = <&ja_ui>;
+    };
+
+    // E+BS -> ja_ei
+    combo_e_bs {
+      timeout-ms = <60>;
+      key-positions = <17 65>;
+      layers = <0>;
+      bindings = <&ja_ei>;
+    };
+
+    // O+BS -> ja_ou
+    combo_o_bs {
+      timeout-ms = <60>;
+      key-positions = <25 65>;
+      layers = <0>;
+      bindings = <&ja_ou>;
     };
   };
 };
