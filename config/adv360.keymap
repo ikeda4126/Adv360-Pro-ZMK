@@ -20,6 +20,190 @@
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
       };
+
+      // ESC / CTRL : 単押し=ESC、長押し(または他キーとの同時押し)=CTRL
+      ec: esc_ctrl {
+          compatible = "zmk,behavior-hold-tap";
+          label = "ESC_CTRL";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>;
+          quick-tap-ms = <150>;
+          flavor = "balanced";
+          bindings = <&kp>, <&kp>;
+      };
+
+      // ---- 日本語入力用マクロ (ローマ字を送出) ----
+      // wait-ms / tap-ms は全マクロ共通で調整してください (USB想定=10ms、Bluetoothなら30ms以上を推奨)
+
+      // a+Space : 撥音 ann
+      ja_ann: ja_ann {
+          compatible = "zmk,behavior-macro";
+          label = "ja_ann";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp A &kp N &kp N>;
+      };
+
+      // i+Space : 撥音 inn
+      ja_inn: ja_inn {
+          compatible = "zmk,behavior-macro";
+          label = "ja_inn";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp I &kp N &kp N>;
+      };
+
+      // u+Space : 撥音 unn
+      ja_unn: ja_unn {
+          compatible = "zmk,behavior-macro";
+          label = "ja_unn";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp U &kp N &kp N>;
+      };
+
+      // e+Space : 撥音 enn
+      ja_enn: ja_enn {
+          compatible = "zmk,behavior-macro";
+          label = "ja_enn";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp E &kp N &kp N>;
+      };
+
+      // o+Space : 撥音 onn
+      ja_onn: ja_onn {
+          compatible = "zmk,behavior-macro";
+          label = "ja_onn";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp O &kp N &kp N>;
+      };
+
+      // A+Enter : 拗音 ya
+      ja_ya: ja_ya {
+          compatible = "zmk,behavior-macro";
+          label = "ja_ya";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp Y &kp A>;
+      };
+
+      // U+Enter : 拗音 yu
+      ja_yu: ja_yu {
+          compatible = "zmk,behavior-macro";
+          label = "ja_yu";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp Y &kp U>;
+      };
+
+      // O+Enter : 拗音 yo
+      ja_yo: ja_yo {
+          compatible = "zmk,behavior-macro";
+          label = "ja_yo";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp Y &kp O>;
+      };
+
+      // I+Enter : hi (dhi=でぃ, thi=てぃ, whi=うぃ)
+      ja_hi: ja_hi {
+          compatible = "zmk,behavior-macro";
+          label = "ja_hi";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp H &kp I>;
+      };
+
+      // E+Enter : he (she=しぇ, che=ちぇ)
+      ja_he: ja_he {
+          compatible = "zmk,behavior-macro";
+          label = "ja_he";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp H &kp E>;
+      };
+
+      // A+BS : 二重母音 ai
+      ja_ai: ja_ai {
+          compatible = "zmk,behavior-macro";
+          label = "ja_ai";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp A &kp I>;
+      };
+
+      // I+BS : 二重母音 ii
+      ja_ii: ja_ii {
+          compatible = "zmk,behavior-macro";
+          label = "ja_ii";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp I &kp I>;
+      };
+
+      // U+BS : 二重母音 ui
+      ja_ui: ja_ui {
+          compatible = "zmk,behavior-macro";
+          label = "ja_ui";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp U &kp I>;
+      };
+
+      // E+BS : 二重母音 ei
+      ja_ei: ja_ei {
+          compatible = "zmk,behavior-macro";
+          label = "ja_ei";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp E &kp I>;
+      };
+
+      // O+BS : 二重母音 ou
+      ja_ou: ja_ou {
+          compatible = "zmk,behavior-macro";
+          label = "ja_ou";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp O &kp U>;
+      };
+
+      // O+Enter+BS : ょう (3キー)
+      ja_you: ja_you {
+          compatible = "zmk,behavior-macro";
+          label = "ja_you";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp Y &kp O &kp U>;
+      };
+
+      // U+Enter+BS : ゅう (3キー)
+      ja_yuu: ja_yuu {
+          compatible = "zmk,behavior-macro";
+          label = "ja_yuu";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&macro_tap &kp Y &kp U &kp U>;
+      };
     };
 
   keymap {
@@ -30,7 +214,7 @@
       bindings = <
         &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &ec LCTRL ESC &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
         &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
         &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
       >;
@@ -48,7 +232,7 @@
     fn {
       display-name = "Fn";
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+        &kp F12 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &tog 1                                           &mo 3 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
         &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
         &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
         &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
@@ -83,6 +267,165 @@
     extra4 { 
       display-name = "Yellow";    
       status = "reserved";
+    };
+  };
+
+  // ======== 日本語入力コンボ (ベースレイヤーのみ) ========
+  // 子音を普通に打ち、直後に「母音 + 親指キー」を同時押しする。
+  // timeout-ms を全コンボで調整してください。
+  combos {
+    compatible = "zmk,combos";
+
+    // A+Space -> ann
+    combo_a_nn {
+      timeout-ms = <40>;
+      key-positions = <29 70>;
+      layers = <0>;
+      bindings = <&ja_ann>;
+    };
+
+    // I+Space -> inn
+    combo_i_nn {
+      timeout-ms = <40>;
+      key-positions = <24 70>;
+      layers = <0>;
+      bindings = <&ja_inn>;
+    };
+
+    // U+Space -> unn
+    combo_u_nn {
+      timeout-ms = <40>;
+      key-positions = <23 70>;
+      layers = <0>;
+      bindings = <&ja_unn>;
+    };
+
+    // E+Space -> enn
+    combo_e_nn {
+      timeout-ms = <40>;
+      key-positions = <17 70>;
+      layers = <0>;
+      bindings = <&ja_enn>;
+    };
+
+    // O+Space -> onn
+    combo_o_nn {
+      timeout-ms = <40>;
+      key-positions = <25 70>;
+      layers = <0>;
+      bindings = <&ja_onn>;
+    };
+
+    // A+Enter -> ja_ya
+    combo_a_enter {
+      timeout-ms = <40>;
+      key-positions = <29 69>;
+      layers = <0>;
+      bindings = <&ja_ya>;
+    };
+
+    // U+Enter -> ja_yu
+    combo_u_enter {
+      timeout-ms = <40>;
+      key-positions = <23 69>;
+      layers = <0>;
+      bindings = <&ja_yu>;
+    };
+
+    // O+Enter -> ja_yo
+    combo_o_enter {
+      timeout-ms = <40>;
+      key-positions = <25 69>;
+      layers = <0>;
+      bindings = <&ja_yo>;
+    };
+
+    // I+Enter -> ja_hi
+    combo_i_enter {
+      timeout-ms = <40>;
+      key-positions = <24 69>;
+      layers = <0>;
+      bindings = <&ja_hi>;
+    };
+
+    // E+Enter -> ja_he
+    combo_e_enter {
+      timeout-ms = <40>;
+      key-positions = <17 69>;
+      layers = <0>;
+      bindings = <&ja_he>;
+    };
+
+    // A+BS -> ja_ai
+    combo_a_bs {
+      timeout-ms = <40>;
+      key-positions = <29 65>;
+      layers = <0>;
+      bindings = <&ja_ai>;
+    };
+
+    // I+BS -> ja_ii
+    combo_i_bs {
+      timeout-ms = <40>;
+      key-positions = <24 65>;
+      layers = <0>;
+      bindings = <&ja_ii>;
+    };
+
+    // U+BS -> ja_ui
+    combo_u_bs {
+      timeout-ms = <40>;
+      key-positions = <23 65>;
+      layers = <0>;
+      bindings = <&ja_ui>;
+    };
+
+    // E+BS -> ja_ei
+    combo_e_bs {
+      timeout-ms = <40>;
+      key-positions = <17 65>;
+      layers = <0>;
+      bindings = <&ja_ei>;
+    };
+
+    // O+BS -> ja_ou
+    combo_o_bs {
+      timeout-ms = <40>;
+      key-positions = <25 65>;
+      layers = <0>;
+      bindings = <&ja_ou>;
+    };
+
+    // Del+Enter -> ー
+    combo_choon_enter {
+      timeout-ms = <40>;
+      key-positions = <66 69>;
+      layers = <0>;
+      bindings = <&kp MINUS>;
+    };
+
+    // Del+Space -> ー
+    combo_choon_space {
+      timeout-ms = <40>;
+      key-positions = <66 70>;
+      layers = <0>;
+      bindings = <&kp MINUS>;
+    };
+
+    // O+Enter+BS -> ょう (3キー。不要なら削除/コメントアウト)
+    combo_you {
+      timeout-ms = <40>;
+      key-positions = <25 69 65>;
+      layers = <0>;
+      bindings = <&ja_you>;
+    };
+
+    // U+Enter+BS -> ゅう (3キー。不要なら削除/コメントアウト)
+    combo_yuu {
+      timeout-ms = <40>;
+      key-positions = <23 69 65>;
+      layers = <0>;
+      bindings = <&ja_yuu>;
     };
   };
 };
