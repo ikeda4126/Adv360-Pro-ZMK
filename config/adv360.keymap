@@ -272,7 +272,7 @@
 
   // ======== 日本語入力コンボ (ベースレイヤーのみ) ========
   // 子音を普通に打ち、直後に「母音 + 親指キー」を同時押しする。
-  // ん=母音+Enter / 拗音(ya yu yo hi he)=母音+Del / 二重母音=母音+BS / 長音=Del+Enter
+  // ん=母音+Enter / 拗音(ya yu yo hi he)=母音+Del / 二重母音=母音+BS または 母音+PgDn / 長音=Del+Enter
   // timeout-ms を全コンボで調整してください。
   // 並び順: 長音(Del系) → 2キー。通常=60ms、長音(Del+Enter)=80ms。3キー(ょう/ゅう)は外してある (ja_you/ja_yuu マクロは残置)。
   combos {
@@ -405,6 +405,46 @@
     combo_o_bs {
       timeout-ms = <60>;
       key-positions = <25 65>;
+      layers = <0>;
+      bindings = <&ja_ou>;
+    };
+
+    // A+PgDn -> ja_ai (二重母音の第2ペダル)
+    combo_a_pgdn {
+      timeout-ms = <60>;
+      key-positions = <29 68>;
+      layers = <0>;
+      bindings = <&ja_ai>;
+    };
+
+    // I+PgDn -> ja_ii (二重母音の第2ペダル)
+    combo_i_pgdn {
+      timeout-ms = <60>;
+      key-positions = <24 68>;
+      layers = <0>;
+      bindings = <&ja_ii>;
+    };
+
+    // U+PgDn -> ja_ui (二重母音の第2ペダル)
+    combo_u_pgdn {
+      timeout-ms = <60>;
+      key-positions = <23 68>;
+      layers = <0>;
+      bindings = <&ja_ui>;
+    };
+
+    // E+PgDn -> ja_ei (二重母音の第2ペダル)
+    combo_e_pgdn {
+      timeout-ms = <60>;
+      key-positions = <17 68>;
+      layers = <0>;
+      bindings = <&ja_ei>;
+    };
+
+    // O+PgDn -> ja_ou (二重母音の第2ペダル)
+    combo_o_pgdn {
+      timeout-ms = <60>;
+      key-positions = <25 68>;
       layers = <0>;
       bindings = <&ja_ou>;
     };
