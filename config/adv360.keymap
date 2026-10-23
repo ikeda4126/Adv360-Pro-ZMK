@@ -35,7 +35,7 @@
       // ---- 日本語入力用マクロ (ローマ字を送出) ----
       // wait-ms / tap-ms は全マクロ共通で調整してください (USB想定=10ms、Bluetoothなら30ms以上を推奨)
 
-      // a+Space : 撥音 ann
+      // a+Enter : 撥音 ann
       ja_ann: ja_ann {
           compatible = "zmk,behavior-macro";
           label = "ja_ann";
@@ -45,7 +45,7 @@
           bindings = <&macro_tap &kp A &kp N &kp N>;
       };
 
-      // i+Space : 撥音 inn
+      // i+Enter : 撥音 inn
       ja_inn: ja_inn {
           compatible = "zmk,behavior-macro";
           label = "ja_inn";
@@ -55,7 +55,7 @@
           bindings = <&macro_tap &kp I &kp N &kp N>;
       };
 
-      // u+Space : 撥音 unn
+      // u+Enter : 撥音 unn
       ja_unn: ja_unn {
           compatible = "zmk,behavior-macro";
           label = "ja_unn";
@@ -65,7 +65,7 @@
           bindings = <&macro_tap &kp U &kp N &kp N>;
       };
 
-      // e+Space : 撥音 enn
+      // e+Enter : 撥音 enn
       ja_enn: ja_enn {
           compatible = "zmk,behavior-macro";
           label = "ja_enn";
@@ -75,7 +75,7 @@
           bindings = <&macro_tap &kp E &kp N &kp N>;
       };
 
-      // o+Space : 撥音 onn
+      // o+Enter : 撥音 onn
       ja_onn: ja_onn {
           compatible = "zmk,behavior-macro";
           label = "ja_onn";
@@ -85,7 +85,7 @@
           bindings = <&macro_tap &kp O &kp N &kp N>;
       };
 
-      // A+Enter : 拗音 ya
+      // A+Del : 拗音 ya
       ja_ya: ja_ya {
           compatible = "zmk,behavior-macro";
           label = "ja_ya";
@@ -95,7 +95,7 @@
           bindings = <&macro_tap &kp Y &kp A>;
       };
 
-      // U+Enter : 拗音 yu
+      // U+Del : 拗音 yu
       ja_yu: ja_yu {
           compatible = "zmk,behavior-macro";
           label = "ja_yu";
@@ -105,7 +105,7 @@
           bindings = <&macro_tap &kp Y &kp U>;
       };
 
-      // O+Enter : 拗音 yo
+      // O+Del : 拗音 yo
       ja_yo: ja_yo {
           compatible = "zmk,behavior-macro";
           label = "ja_yo";
@@ -115,7 +115,7 @@
           bindings = <&macro_tap &kp Y &kp O>;
       };
 
-      // I+Enter : hi (dhi=でぃ, thi=てぃ, whi=うぃ)
+      // I+Del : hi (dhi=でぃ, thi=てぃ, whi=うぃ)
       ja_hi: ja_hi {
           compatible = "zmk,behavior-macro";
           label = "ja_hi";
@@ -125,7 +125,7 @@
           bindings = <&macro_tap &kp H &kp I>;
       };
 
-      // E+Enter : he (she=しぇ, che=ちぇ)
+      // E+Del : he (she=しぇ, che=ちぇ)
       ja_he: ja_he {
           compatible = "zmk,behavior-macro";
           label = "ja_he";
@@ -185,7 +185,7 @@
           bindings = <&macro_tap &kp O &kp U>;
       };
 
-      // O+Enter+BS : ょう (3キー)
+      // O+Del+BS : ょう (3キー・現在は未使用)
       ja_you: ja_you {
           compatible = "zmk,behavior-macro";
           label = "ja_you";
@@ -195,7 +195,7 @@
           bindings = <&macro_tap &kp Y &kp O &kp U>;
       };
 
-      // U+Enter+BS : ゅう (3キー)
+      // U+Del+BS : ゅう (3キー・現在は未使用)
       ja_yuu: ja_yuu {
           compatible = "zmk,behavior-macro";
           label = "ja_yuu";
@@ -272,8 +272,9 @@
 
   // ======== 日本語入力コンボ (ベースレイヤーのみ) ========
   // 子音を普通に打ち、直後に「母音 + 親指キー」を同時押しする。
+  // ん=母音+Enter / 拗音(ya yu yo hi he)=母音+Del / 二重母音=母音+BS / 長音=Del+Enter
   // timeout-ms を全コンボで調整してください。
-  // 並び順: Del系(ー) → 3キー → 2キー。通常 2キー/3キー=60ms、Del系=80ms。
+  // 並び順: 長音(Del系) → 2キー。通常=60ms、長音(Del+Enter)=80ms。3キー(ょう/ゅう)は外してある (ja_you/ja_yuu マクロは残置)。
   combos {
     compatible = "zmk,combos";
 
@@ -285,106 +286,85 @@
       bindings = <&kp MINUS>;
     };
 
-    // Del+Space -> ー
-    combo_choon_space {
-      timeout-ms = <80>;
-      key-positions = <66 70>;
-      layers = <0>;
-      bindings = <&kp MINUS>;
-    };
 
-    // O+Enter+BS -> ょう (3キー。不要なら削除/コメントアウト)
-    combo_you {
-      timeout-ms = <60>;
-      key-positions = <25 69 65>;
-      layers = <0>;
-      bindings = <&ja_you>;
-    };
 
-    // U+Enter+BS -> ゅう (3キー。不要なら削除/コメントアウト)
-    combo_yuu {
-      timeout-ms = <60>;
-      key-positions = <23 69 65>;
-      layers = <0>;
-      bindings = <&ja_yuu>;
-    };
 
-    // A+Space -> ann
+    // A+Enter -> ann
     combo_a_nn {
       timeout-ms = <60>;
-      key-positions = <29 70>;
+      key-positions = <29 69>;
       layers = <0>;
       bindings = <&ja_ann>;
     };
 
-    // I+Space -> inn
+    // I+Enter -> inn
     combo_i_nn {
       timeout-ms = <60>;
-      key-positions = <24 70>;
+      key-positions = <24 69>;
       layers = <0>;
       bindings = <&ja_inn>;
     };
 
-    // U+Space -> unn
+    // U+Enter -> unn
     combo_u_nn {
       timeout-ms = <60>;
-      key-positions = <23 70>;
+      key-positions = <23 69>;
       layers = <0>;
       bindings = <&ja_unn>;
     };
 
-    // E+Space -> enn
+    // E+Enter -> enn
     combo_e_nn {
       timeout-ms = <60>;
-      key-positions = <17 70>;
+      key-positions = <17 69>;
       layers = <0>;
       bindings = <&ja_enn>;
     };
 
-    // O+Space -> onn
+    // O+Enter -> onn
     combo_o_nn {
       timeout-ms = <60>;
-      key-positions = <25 70>;
+      key-positions = <25 69>;
       layers = <0>;
       bindings = <&ja_onn>;
     };
 
-    // A+Enter -> ja_ya
-    combo_a_enter {
+    // A+Del -> ja_ya
+    combo_a_yoon {
       timeout-ms = <60>;
-      key-positions = <29 69>;
+      key-positions = <29 66>;
       layers = <0>;
       bindings = <&ja_ya>;
     };
 
-    // U+Enter -> ja_yu
-    combo_u_enter {
+    // U+Del -> ja_yu
+    combo_u_yoon {
       timeout-ms = <60>;
-      key-positions = <23 69>;
+      key-positions = <23 66>;
       layers = <0>;
       bindings = <&ja_yu>;
     };
 
-    // O+Enter -> ja_yo
-    combo_o_enter {
+    // O+Del -> ja_yo
+    combo_o_yoon {
       timeout-ms = <60>;
-      key-positions = <25 69>;
+      key-positions = <25 66>;
       layers = <0>;
       bindings = <&ja_yo>;
     };
 
-    // I+Enter -> ja_hi
-    combo_i_enter {
+    // I+Del -> ja_hi
+    combo_i_yoon {
       timeout-ms = <60>;
-      key-positions = <24 69>;
+      key-positions = <24 66>;
       layers = <0>;
       bindings = <&ja_hi>;
     };
 
-    // E+Enter -> ja_he
-    combo_e_enter {
+    // E+Del -> ja_he
+    combo_e_yoon {
       timeout-ms = <60>;
-      key-positions = <17 69>;
+      key-positions = <17 66>;
       layers = <0>;
       bindings = <&ja_he>;
     };
